@@ -519,60 +519,117 @@ Admission Inquiry
 
 <form>
 
-<!-- Select Class / Course -->
-<div class="mb-3">
-    <label for="studentClass" class="form-label fw-bold">
-        🎓 Select Class / Course <span class="text-danger">*</span>
-    </label>
+<form id="contactForm" novalidate>
 
-    <select class="form-select form-select-lg" id="studentClass" name="studentClass" required>
+    <!-- Full Name -->
+    <input type="text" class="form-control mb-3"
+           id="name"
+           placeholder="👤 Full Name">
 
-        <option value="">📚 -- Select Class / Course --</option>
+    <!-- Email -->
+    <input type="email" class="form-control mb-3"
+           id="email"
+           placeholder="📧 Email Address">
 
-        <!-- PRE PRIMARY -->
-        <optgroup label="🧸 Pre-Primary Section">
-            <option value="Play Group">Play Group</option>
-            <option value="Nursery">Nursery</option>
-            <option value="Junior KG">Junior KG (Jr. KG)</option>
-            <option value="Senior KG">Senior KG (Sr. KG)</option>
-        </optgroup>
+    <!-- Mobile -->
+    <input type="tel" class="form-control mb-3"
+           id="mobile"
+           placeholder="📱 Mobile Number"
+           maxlength="10">
 
-        <!-- PRIMARY -->
-        <optgroup label="📘 Primary Section">
-            <option value="Std 1">Std I</option>
-            <option value="Std 2">Std II</option>
-            <option value="Std 3">Std III</option>
-            <option value="Std 4">Std IV</option>
-            <option value="Std 5">Std V</option>
-        </optgroup>
+    <!-- Address -->
+    <input type="text" class="form-control mb-3"
+           id="address"
+           placeholder="🏠 Address">
 
-        <!-- SECONDARY -->
-        <optgroup label="📗 Secondary Section">
-            <option value="Std 6">Std VI</option>
-            <option value="Std 7">Std VII</option>
-            <option value="Std 8">Std VIII</option>
-            <option value="Std 9">Std IX</option>
-            <option value="Std 10">Std X</option>
-        </optgroup>
+    <!-- Select Class -->
+    <select class="form-select mb-3" id="studentClass">
+        <option value="">🎓 Select Class / Course</option>
 
-        <!-- JUNIOR COLLEGE -->
-        <optgroup label="🎓 Junior College">
-            <option value="11th Science">11th Science</option>
-            <option value="11th Commerce">11th Commerce</option>
-            <option value="11th Arts">11th Arts</option>
+        <option disabled>──────── PRE-PRIMARY ────────</option>
+        <option>🧸 Play Group</option>
+        <option>🧸 Nursery</option>
+        <option>🧸 Junior KG</option>
+        <option>🧸 Senior KG</option>
 
-            <option value="12th Science">12th Science</option>
-            <option value="12th Commerce">12th Commerce</option>
-            <option value="12th Arts">12th Arts</option>
-        </optgroup>
+        <option disabled>──────── PRIMARY ────────</option>
+        <option>📘 Std I</option>
+        <option>📘 Std II</option>
+        <option>📘 Std III</option>
+        <option>📘 Std IV</option>
+        <option>📘 Std V</option>
 
-        <!-- DEGREE COLLEGE -->
-        <optgroup label="💻 Degree College">
-            <option value="FY B.Sc. IT">FY B.Sc. Information Technology (FY B.Sc. IT)</option>
-            <option value="SY B.Sc. IT">SY B.Sc. Information Technology (SY B.Sc. IT)</option>
-            <option value="TY B.Sc. IT">TY B.Sc. Information Technology (TY B.Sc. IT)</option>
-        </optgroup>
+        <option disabled>──────── SECONDARY ────────</option>
+        <option>📗 Std VI</option>
+        <option>📗 Std VII</option>
+        <option>📗 Std VIII</option>
+        <option>📗 Std IX</option>
+        <option>📗 Std X</option>
 
+        <option disabled>──────── JUNIOR COLLEGE ────────</option>
+        <option>🧪 11th Science</option>
+        <option>💼 11th Commerce</option>
+        <option>🎨 11th Arts</option>
+        <option>🧪 12th Science</option>
+        <option>💼 12th Commerce</option>
+        <option>🎨 12th Arts</option>
+
+        <option disabled>──────── DEGREE COLLEGE ────────</option>
+        <option>💻 FY B.Sc. Information Technology (FY B.Sc. IT)</option>
+        <option>💻 SY B.Sc. Information Technology (SY B.Sc. IT)</option>
+        <option>💻 TY B.Sc. Information Technology (TY B.Sc. IT)</option>
+    </select>
+
+    <!-- Message -->
+    <textarea class="form-control mb-3"
+              id="message"
+              rows="4"
+              placeholder="📝 Message"></textarea>
+
+    <!-- Submit -->
+    <button type="submit" class="btn btn-primary btn-lg w-100">
+        🚀 Submit Admission Enquiry
+    </button>
+
+</form>
+
+<!-- SweetAlert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let mobile = document.getElementById("mobile").value.trim();
+    let address = document.getElementById("address").value.trim();
+    let studentClass = document.getElementById("studentClass").value;
+    let message = document.getElementById("message").value.trim();
+
+    if(name=="" || email=="" || mobile=="" || address=="" || studentClass=="" || message==""){
+
+        Swal.fire({
+            icon:'error',
+            title:'❌ Invalid Form',
+            html:'<b>Please fill all required fields correctly.</b>',
+            confirmButtonText:'OK',
+            confirmButtonColor:'#d33'
+        });
+
+        return;
+    }
+
+    Swal.fire({
+        icon:'success',
+        title:'🎉 Form Submitted Successfully!',
+        html:'<b>Thank you for your admission enquiry.</b>',
+        confirmButtonColor:'#198754'
+    });
+
+});
+</script>
     </select>
 </div>
 
