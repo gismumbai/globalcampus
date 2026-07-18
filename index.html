@@ -519,56 +519,62 @@ Admission Inquiry
 
 <form>
 
-<input type="text"
-class="form-control mb-3"
-placeholder="Student Full Name" required>>
+<!-- Select Class / Course -->
+<div class="mb-3">
+    <label for="studentClass" class="form-label fw-bold">
+        🎓 Select Class / Course <span class="text-danger">*</span>
+    </label>
 
-<input type="text"
-class="form-control mb-3"
-placeholder="Mother Name" required>
+    <select class="form-select form-select-lg" id="studentClass" name="studentClass" required>
 
-<input type="text"
-class="form-control mb-3"
-placeholder="D.O.B">
+        <option value="">📚 -- Select Class / Course --</option>
 
-<input type="text"
-class="form-control mb-3"
-placeholder="Gender">
+        <!-- PRE PRIMARY -->
+        <optgroup label="🧸 Pre-Primary Section">
+            <option value="Play Group">Play Group</option>
+            <option value="Nursery">Nursery</option>
+            <option value="Junior KG">Junior KG (Jr. KG)</option>
+            <option value="Senior KG">Senior KG (Sr. KG)</option>
+        </optgroup>
 
-<input type="text"
-class="form-control mb-3"
-placeholder="Parent Mobile Number ">
+        <!-- PRIMARY -->
+        <optgroup label="📘 Primary Section">
+            <option value="Std 1">Std I</option>
+            <option value="Std 2">Std II</option>
+            <option value="Std 3">Std III</option>
+            <option value="Std 4">Std IV</option>
+            <option value="Std 5">Std V</option>
+        </optgroup>
 
-<input type="text"
-class="form-control mb-3"
-placeholder="E-mail-id">
+        <!-- SECONDARY -->
+        <optgroup label="📗 Secondary Section">
+            <option value="Std 6">Std VI</option>
+            <option value="Std 7">Std VII</option>
+            <option value="Std 8">Std VIII</option>
+            <option value="Std 9">Std IX</option>
+            <option value="Std 10">Std X</option>
+        </optgroup>
 
-<select class="form-control mb-3">
-<option>Select Class</option>
-<option>Play group</option>
-<option>Nursery</option>
-<option>Jr KG</option>
-<option>Sr KG</option>
-<option>1st Standard </option>
-<option>2nd Standard</option>
-<option>3rd Standard</option>
-<option>4th Standard </option>
-<option>5th Standard </option>
-<option>6th Standard </option>
-<option>7th Standard</option>
-<option>8th Standard </option>
-<option>9th Standard</option>
-<option>10th Standard </option>
-<option>11th Computer Science</option>
-<option>11th Science</option>
-<option>11th Commerce</option>
-<option>11th Arts</option>
-<option>12th Computer Science</option>
-<option>12th Science</option>
-<option>12th Commerce</option>
-<option>12th Arts</option>
-<option>DEGREE COLLEGE :- B.SC.IT</option>
+        <!-- JUNIOR COLLEGE -->
+        <optgroup label="🎓 Junior College">
+            <option value="11th Science">11th Science</option>
+            <option value="11th Commerce">11th Commerce</option>
+            <option value="11th Arts">11th Arts</option>
 
+            <option value="12th Science">12th Science</option>
+            <option value="12th Commerce">12th Commerce</option>
+            <option value="12th Arts">12th Arts</option>
+        </optgroup>
+
+        <!-- DEGREE COLLEGE -->
+        <optgroup label="💻 Degree College">
+            <option value="FY B.Sc. IT">FY B.Sc. Information Technology (FY B.Sc. IT)</option>
+            <option value="SY B.Sc. IT">SY B.Sc. Information Technology (SY B.Sc. IT)</option>
+            <option value="TY B.Sc. IT">TY B.Sc. Information Technology (TY B.Sc. IT)</option>
+        </optgroup>
+
+    </select>
+</div>
 
 </select>
 <input type="text"
