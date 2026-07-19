@@ -514,43 +514,137 @@ Start Admission Process
 <div class="col-lg-6">
 
 
-
-
-
-
-
-    
 <h2 class="fw-bold text-primary">
 Admission Inquiry
 </h2>
 
+<form>
 
+<input type="text" placeholder="Full Name" required>
+    
+    <!-- Email -->
+    <input type="email" class="form-control mb-3"
+           id="email"
+           placeholder="📧 Email Address" required>
 
-<form id="contactForm" novalidate>
+    <!-- Mobile -->
+    <input type="tel" class="form-control mb-3"
+           id="mobile"
+           placeholder="📱 Mobile Number"
+           maxlength="10"  required>
 
-    <input type="text" class="form-control" placeholder="Full Name" required>
-    <div class="error">Please enter your full name.</div>
+    <!-- Address -->
+    <input type="text" class="form-control mb-3"
+           id="address"
+           placeholder="🏠 Address"  required>
 
-    <input type="email" class="form-control" placeholder="Email Address" required>
-    <div class="error">Please enter your email.</div>
+    <!-- Select Class -->
+    <select class="form-select mb-3" id="studentClass"  required>
+        <option value="">🎓 Select Class / Course</option>
 
-    <input type="text" class="form-control" placeholder="Mobile Number" required>
-    <div class="error">Please enter your mobile number.</div>
+        <option disabled>──────── PRE-PRIMARY ────────</option>
+        <option>🧸 Play Group</option>
+        <option>🧸 Nursery</option>
+        <option>🧸 Junior KG</option>
+        <option>🧸 Senior KG</option>
 
-    <input type="text" class="form-control" placeholder="Address" required>
-    <div class="error">Please enter your address.</div>
+        <option disabled>──────── PRIMARY ────────</option>
+        <option>📘 Std I</option>
+        <option>📘 Std II</option>
+        <option>📘 Std III</option>
+        <option>📘 Std IV</option>
+        <option>📘 Std V</option>
 
-    <select class="form-control" required>
-        <option value="">Select Class / Course</option>
-        <option>B.Sc IT</option>
-        <option>BCA</option>
+        <option disabled>──────── SECONDARY ────────</option>
+        <option>📗 Std VI</option>
+        <option>📗 Std VII</option>
+        <option>📗 Std VIII</option>
+        <option>📗 Std IX</option>
+        <option>📗 Std X</option>
+
+        <option disabled>──────── JUNIOR COLLEGE ────────</option>
+        <option>🧪 11th Science</option>
+        <option>💼 11th Commerce</option>
+        <option>🎨 11th Arts</option>
+        <option>🧪 12th Science</option>
+        <option>💼 12th Commerce</option>
+        <option>🎨 12th Arts</option>
+
+        <option disabled>──────── DEGREE COLLEGE ────────</option>
+        <option>💻 FY B.Sc. Information Technology (FY B.Sc. IT)</option>
+        <option>💻 SY B.Sc. Information Technology (SY B.Sc. IT)</option>
+        <option>💻 TY B.Sc. Information Technology (TY B.Sc. IT)</option>
     </select>
-    <div class="error">Please select a class/course.</div>
 
-    <textarea class="form-control" placeholder="Message" required></textarea>
-    <div class="error">Please enter your message.</div>
+    <!-- Message -->
+    <textarea class="form-control mb-3"
+              id="message"
+              rows="4"
+              placeholder="📝 Message"  required></textarea>
 
-    <button type="submit">Submit</button>
+  
+
+</form>
+
+<!-- SweetAlert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+<form id="contactForm">.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let mobile = document.getElementById("mobile").value.trim();
+    let address = document.getElementById("address").value.trim();
+    let studentClass = document.getElementById("studentClass").value;
+    let message = document.getElementById("message").value.trim();
+
+    if(name=="" || email=="" || mobile=="" || address=="" || studentClass=="" || message==""){
+
+        Swal.fire({
+            icon:'error',
+            title:'❌ Invalid Form',
+            html:'<b>Please fill all required fields correctly.</b>',
+            confirmButtonText:'OK',
+            confirmButtonColor:'#d33'
+        });
+
+        return;
+    }
+
+    Swal.fire({
+        icon:'success',
+        title:'🎉 Form Submitted Successfully!',
+        html:'<b>Thank you for your admission enquiry.</b>',
+        confirmButtonColor:'#198754'
+    });
+
+});
+</script>
+    </select>
+</div>
+
+</select>
+
+
+    <div class="d-flex justify-content-center gap-3 mt-4 flex-wrap">
+
+  <div class="d-flex justify-content-center gap-3 mt-4 flex-wrap">
+
+    <button type="submit" class="btn btn-primary btn-lg px-4 py-2">
+        🚀 Submit
+    </button>
+
+    <a href="https://wa.me/918976521508" target="_blank"
+       class="btn btn-success btn-lg px-4 py-2">
+        💬 Send on WhatsApp
+    </a>
+
+</div>
+
+</div>
 
 </form>
 
